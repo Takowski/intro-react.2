@@ -24,19 +24,22 @@ const List = ({ todos, setTodos }) => {
             </div>
             <ul className='flex flex-col'>
                 {todos.map((todo) => (
-                    <li key={todo.id}>
+                    
+                    <li className="flex flex-row items-baseline gap-2"
+                    key={todo.id}>
                         <input 
                             type="checkbox"
                             id={`todo-${todo.id}`}
                             checked={todo.completed}
                             onChange={() => handleCheckboxChange(todo.id)}
                         />
-                        <label htmlFor={`todo-${todo.id}`}>
-                            {todo.completed ? <del>{todo.text}</del> : todo.text}
+                        <label className="text-xl" htmlFor={`todo-${todo.id}`}>
+                            {todo.completed ? <del>{todo.text} </del> : todo.text}
                         </label>
-                        <p>From: {todo.from}</p>
-                        <p>To: {todo.to}</p>
+                        {/* <p>From: {todo.from}</p> */}
+                        <p>Deadline: {todo.to}</p>
                     </li>
+                    
                 ))}
             </ul>
         </div>
